@@ -2,10 +2,9 @@ package day02;
 
 public class EX02 {
     public static void main(String[] args) {
-        Phone son = new Phone("쏘니");
-        Phone beckem = new Phone("베컴");
-        son.setLan("kor");
-        beckem.setLan("eng");
+        Phone son = new SamsungPhone("쏘니");
+        Phone beckem = new ApplePhone("베컴");
+
 
         son.setSound();
         son.turnOn();
@@ -19,7 +18,7 @@ public class EX02 {
 class Phone{
     String owner;
     String sound;
-    String lan;
+    String model;
 
     Phone(){
 
@@ -31,9 +30,9 @@ class Phone{
     }
 
     void turnOn(){
-        if(getLan().equals("eng")){
+        if(getModel().equals("Apple")){
             System.out.println("turn on");
-        }else{
+        }else if(getModel().equals("Samsung")){
             System.out.println("야 내 핸드폰 켜볼게");
         }
 
@@ -41,19 +40,19 @@ class Phone{
     }
 
     void setSound(){
-        if(getLan().equals("eng")){
+        if(getModel().equals("Apple")){
             this.sound = "bbeep";
-        }else{
+        }else if(getModel().equals("Samsung")){
             this.sound = "삐비빅";
         }
     }
 
-    void setLan(String lan){
-        this.lan = lan;
+    void setModel(String model){
+        this.model = model;
     }
 
-    String getLan(){
-        return lan;
+    String getModel(){
+        return model;
     }
 
     String getSound(){
@@ -64,5 +63,32 @@ class Phone{
         return owner;
     }
 
+
+}
+
+
+class SamsungPhone extends Phone{
+
+    SamsungPhone(){
+        super();
+    }
+
+    SamsungPhone(String owner){
+        super(owner);
+        setModel("Samsung");
+    }
+
+}
+
+class ApplePhone extends Phone{
+    String model = "Apple";
+    ApplePhone(){
+        super();
+    }
+
+    ApplePhone(String owner){
+        super(owner);
+        setModel("Apple");
+    }
 
 }
