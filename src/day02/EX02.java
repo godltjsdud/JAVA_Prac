@@ -81,7 +81,7 @@ class SamsungPhone extends Phone{
 }
 
 class ApplePhone extends Phone{
-    String model = "Apple";
+
     ApplePhone(){
         super();
     }
